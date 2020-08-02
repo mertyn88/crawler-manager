@@ -4,4 +4,5 @@
 /gradle/
 /build/
 /build/classes/java/main/
+/out/
 #/src/main/resources/application.yml
