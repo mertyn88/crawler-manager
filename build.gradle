@@ -63,6 +63,9 @@ dependencies {
     annotationProcessor("org.projectlombok:lombok:${lombokVersion}")
     annotationProcessor("org.springframework.boot:spring-boot-configuration-processor:${springBootVersion}")
 
+    // spring boot web
+    implementation("org.springframework.boot:spring-boot-starter-web:${springBootVersion}")
+
     // picocli
     compile("info.picocli:picocli-spring-boot-starter:${picocliVersion}")
 
@@ -88,9 +91,11 @@ dependencies {
     compile("com.fasterxml.jackson.core:jackson-databind:2.8.8")
 
     //Crawler 4j
-    compile("edu.uci.ics:crawler4j:4.3")
+    compile("edu.uci.ics:crawler4j:4.4.0")
     //Jsoup
-    compile("org.jsoup:jsoup:1.11.3")
+    compile("org.jsoup:jsoup:1.5.2")
+    //Selenium
+    implementation("org.seleniumhq.selenium:selenium-java:3.141.59")
 
     testImplementation("org.springframework.boot:spring-boot-starter-test:${springBootVersion}")
 }

@@ -1,10 +1,8 @@
 package kr.co.crawler.service;
 
-import edu.uci.ics.crawler4j.crawler.CrawlController;
-import edu.uci.ics.crawler4j.crawler.WebCrawler;
 import kr.co.crawler.core.properties.CrawlerProperties;
 
-public class MyCrawlerFactory implements CrawlController.WebCrawlerFactory {
+public class MyCrawlerFactory implements CustomCrawlerController.CustomCrawlerFactory {
 
     InsertService insertService;
     CrawlerProperties crawlerProperties;
@@ -15,7 +13,7 @@ public class MyCrawlerFactory implements CrawlController.WebCrawlerFactory {
     }
 
     @Override
-    public WebCrawler newInstance() throws Exception {
+    public CustomCrawler newInstance() throws Exception {
         return new MyCrawler(crawlerProperties, insertService);
     }
 }

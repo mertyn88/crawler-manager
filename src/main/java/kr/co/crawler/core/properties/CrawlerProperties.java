@@ -16,7 +16,7 @@ public class CrawlerProperties {
     private Integer maxDelay;
     private Integer maxDepth;
     private String historyPath;
-    private List<String> siteList;
+    //private List<String> siteList;
     private String visitPattern;
-
+    private List<SeedProperties> seedInfo;
 }
