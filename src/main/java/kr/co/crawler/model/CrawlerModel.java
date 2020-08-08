@@ -10,6 +10,9 @@ public class CrawlerModel {
     private String crawlingDocId;   //문서 번호
     private String crawlingBaseUrl; //기본 주소
     private String crawlingTargetUrl;   //대상 주소
+    private String crawlingKeyword;
+    private String crawlingTitle;
+    private String crawlingImagePath;
     private String crawlingContent; //문서 내용
 
 }

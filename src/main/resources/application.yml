@@ -19,7 +19,7 @@ spring:
       driver-class-name: com.mysql.jdbc.Driver
       url: jdbc:mysql://flio.iptime.org:3306/flio?useUnicode=true&characterEncoding=utf-8&connectionCollation=utf8_bin&characterSetResults=utf8&autoReconnectForPools=true&serverTimezone=Asia/Seoul&useSSL=false&zeroDateTimeBehavior=convertToNull&connectTimeout=3000&socketTimeout=30000&allowPublicKeyRetrieval=true
       username: flio
-      password: flioflio
+      password: 
       initial-size: 1
       max-total: 3
       max-idle: 3
@@ -37,14 +37,19 @@ crawler:
   thread-num: 1
   max-delay: 500
   max-depth: 3
-  history-path: C:\Users\merty\Downloads
-  #visit-pattern: (^http.*news.*\&idx.*$)
-  #site-list:
-  #  - https://avmix.co.kr/news/?page=#page#
+  history-path: C:\Temp
+  html-path: C:\Temp
+  image-path: C:\Temp
   seed-info:
-    -
-      visit-url: https://post.naver.com/search/post.nhn?keyword=오디오 모니터
-      visit-pattern: ^https://post.naver.com/viewer/postView.nhn\?volumeNo.*searchKeyword=오디오 모니터.*$
-      crawler-pattern:
-        - \#article-view-content-div
-        - p
+    temporary-view-url: http://localhost:8080/temporary/view
+    temporary-save-url: http://localhost:8080/temporary/save
+    search-url: https://post.naver.com/search/post.nhn?keyword=#keyword#
+    search-url-pattern: https://post.naver.com/viewer/postView.nhn\?volumeNo=.*searchRank=.*$
+    search-data-pattern: (?s)<!-- SE3-TEXT \{ -->.*?<!-- \} SE3-TEXT -->
+    search-data-remove-front: <!-- SE3-TEXT \{ -->
+    search-data-remove-back:  <!-- \} SE3-TEXT -->
+    search-more-max: 2
+    search-keyword-list:
+      - 스피커
+      - 마이크
+

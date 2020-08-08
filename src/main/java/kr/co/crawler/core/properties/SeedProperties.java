@@ -8,7 +8,14 @@ import java.util.List;
 @Getter
 @Setter
 public class SeedProperties {
-    String visitUrl;
-    String visitPattern;
-    List<String> crawlerPattern;
+    private String searchUrl;
+    private String searchUrlPattern;
+    private String searchDataPattern;
+    private Integer searchMoreMax;
+    private String temporaryViewUrl;
+    private String temporarySaveUrl;
+    private List<String> searchKeywordList;
+
+    private String searchDataRemoveFront;
+    private String searchDataRemoveBack;
 }

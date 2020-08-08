@@ -10,6 +10,9 @@
                         crawling_doc_id
                         , crawling_base_url
                         , crawling_target_url
+                        , crawling_keyword
+                        , crawling_title
+                        , crawling_image_path
                         , crawling_content
                         , reg_date
                         )
@@ -17,6 +20,9 @@
                 #{crawlingDocId}
                 , #{crawlingBaseUrl}
                 , #{crawlingTargetUrl}
+                , #{crawlingKeyword}
+                , #{crawlingTitle}
+                , #{crawlingImagePath}
                 , #{crawlingContent}
                 , NOW()
                 )

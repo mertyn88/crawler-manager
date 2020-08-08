@@ -1,7 +1,7 @@
 // build script 라이브러리 클래스패스 추가.
 buildscript {
     ext {
-        domainName = "kr.co.crawler-manager"
+        domainName = "crawler-manager"
         // java version
         javaVersion = JavaVersion.VERSION_11
         // 해당 API에서 사용하는 Library 버전.
