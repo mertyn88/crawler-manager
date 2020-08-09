@@ -7,11 +7,11 @@ import kr.co.crawler.core.properties.CrawlerProperties;
 import kr.co.crawler.crawler4j.custom.CustomCrawler;
 import kr.co.crawler.model.CrawlerModel;
 import kr.co.crawler.service.InsertService;
-import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
+import org.slf4j.Logger;
 
 import java.io.*;
 import java.net.URL;
@@ -19,9 +19,9 @@ import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-@Slf4j
 public class Crawler extends CustomCrawler {
 
+    private static final Logger log = org.slf4j.LoggerFactory.getLogger(Crawler.class);
     private String title ;
     private String imageUrl;
     private String imagePath;
@@ -116,7 +116,7 @@ public class Crawler extends CustomCrawler {
                 String matchData = match.group()
                         .replaceAll(crawlerProperties.getSeedInfo().getSearchDataRemoveFront(), "")
                         .replaceAll(crawlerProperties.getSeedInfo().getSearchDataRemoveBack(), "");
-                content += matchData.trim()  + " ";
+                content += removeTag(matchData.trim()).replace("&nbsp;"," ")  + " ";
             }
 
             if(!content.equals("")){
@@ -132,12 +132,6 @@ public class Crawler extends CustomCrawler {
                         }}
                 );
             }
-
-
-            /**
-             * 전역 변수 초기화
-             */
-            init();
         }
     }
 
@@ -148,14 +142,19 @@ public class Crawler extends CustomCrawler {
         content = "";
     }
 
+    /**
+     * 모든 HTML 태그를 제거하고 반환한다.
+     *
+     * @param html
+     * @throws Exception
+     */
+    private String removeTag(String html) {
+        return html.replaceAll("<(/)?([a-zA-Z]*)(\\s[a-zA-Z]*=[^>]*)?(\\s)*(/)?>", "");
+    }
+
 
 
     private String downloadImage(String strUrl) throws IOException {
-
-       // String destinationFileNm = RandomStringUtils.randomAlphanumeric(32) + "." + originalFileNmExtension;
-
-       // String originalFileNm =  multipartFile.getOriginalFilename();
-       // String originalFileNmExtension = FilenameUtils.getExtension(originalFileNm).toLowerCase();
 
         String fileNm = crawlerProperties.getImagePath() + File.separator + RandomStringUtils.randomAlphanumeric(32);
 

@@ -50,7 +50,8 @@ public class Selenium {
         /**
          *  WebDriver 경로 설정
          */
-        Path path = Paths.get(System.getProperty("user.dir"), "src/main/resources/chromedriver" + extension);
+        //Path path = Paths.get(System.getProperty("user.dir"), "src/main/resources/chromedriver" + extension);
+        Path path = Paths.get(System.getProperty("user.dir"), "chromedriver" + File.separator + "chromedriver" + extension);
         System.setProperty("webdriver.chrome.driver", path.toString());
 
         /**

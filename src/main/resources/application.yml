@@ -19,7 +19,7 @@ spring:
       driver-class-name: com.mysql.jdbc.Driver
       url: jdbc:mysql://flio.iptime.org:3306/flio?useUnicode=true&characterEncoding=utf-8&connectionCollation=utf8_bin&characterSetResults=utf8&autoReconnectForPools=true&serverTimezone=Asia/Seoul&useSSL=false&zeroDateTimeBehavior=convertToNull&connectTimeout=3000&socketTimeout=30000&allowPublicKeyRetrieval=true
       username: flio
-      password: 
+      password: flioflio
       initial-size: 1
       max-total: 3
       max-idle: 3
@@ -37,9 +37,9 @@ crawler:
   thread-num: 1
   max-delay: 500
   max-depth: 3
-  history-path: C:\Temp
-  html-path: C:\Temp
-  image-path: C:\Temp
+  history-path: /Users/flio/project/crawler-manager/history
+  html-path: /Users/flio/project/crawler-manager/html
+  image-path: /Users/flio/project/crawler-manager/image
   seed-info:
     temporary-view-url: http://localhost:8080/temporary/view
     temporary-save-url: http://localhost:8080/temporary/save
@@ -48,8 +48,16 @@ crawler:
     search-data-pattern: (?s)<!-- SE3-TEXT \{ -->.*?<!-- \} SE3-TEXT -->
     search-data-remove-front: <!-- SE3-TEXT \{ -->
     search-data-remove-back:  <!-- \} SE3-TEXT -->
-    search-more-max: 2
+    search-more-max: 10
     search-keyword-list:
       - 스피커
       - 마이크
+      - 케이블
+      - 앰프
+      - 이어폰
+      - 헤드폰
+      - 음향장비
+      - 소스기기
+      - 악기
+      - 음반
 

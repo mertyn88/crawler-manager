@@ -61,6 +61,8 @@ configurations.all {
 // 공통 dependency 정의.
 dependencies {
     annotationProcessor("org.projectlombok:lombok:${lombokVersion}")
+    compileOnly("org.projectlombok:lombok:${lombokVersion}")
+
     annotationProcessor("org.springframework.boot:spring-boot-configuration-processor:${springBootVersion}")
 
     // spring boot web
