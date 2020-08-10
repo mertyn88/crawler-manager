@@ -24,7 +24,7 @@ __`Selenium`을 사용한 이유__
 > Java에서 웹크롤링을 가능하게 하는 라이브러리.  
 > 단, 정적표현만 가능하고 동적인 이벤트 처리를 할 수가 없다.  
 > `selinium`과의 연계를 위해 WebCrawler.java와 CrawlerFactory.java를 조금 수정하여서 Custom을 하였다.
-```
+```groovy
 //Crawler 4j
 compile("edu.uci.ics:crawler4j:4.4.0")
 //Jsoup
@@ -34,7 +34,7 @@ compile("org.jsoup:jsoup:1.5.2")
 [selenium](https://www.selenium.dev/) `동적이벤트`
 > UrlConnection으로 가져온 HTML의 데이터를 토대로 원하는 이벤트를 가능하게 해주는 라이브러리.  
 > 해당 프로젝트에서는 '더보기' 버튼을 동적 이벤트로 발생하여서 보다 많은 데이터를 수집할 수 있도록 한다.
-```
+```groovy
 //Selenium
 implementation("org.seleniumhq.selenium:selenium-java:3.141.59")
 ```
