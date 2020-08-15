@@ -2,7 +2,29 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--
+-- 크롤링
+CREATE TABLE `crawling` (
+  `crawling_seq` INT(11) NOT NULL AUTO_INCREMENT COMMENT '크롤링 시퀀스',
+  `crawling_doc_id` INT(11) NOT NULL COMMENT '크롤링 문서번호',
+  `crawling_base_url` VARCHAR(250) DEFAULT NULL COMMENT '기본 주소',
+  `crawling_target_url` VARCHAR(400) DEFAULT NULL COMMENT '대상 주소',
+  `crawling_keyword` VARCHAR(250) DEFAULT NULL COMMENT '크롤링 검색 키워드',
+  `crawling_title` VARCHAR(400) DEFAULT NULL COMMENT '크롤링 타이틀',
+  `crawling_image_path` VARCHAR(400) DEFAULT NULL COMMENT '크롤링 이미지',
+  `crawling_content` LONGTEXT COMMENT '크롤링 내용',
+  `reg_date` DATETIME DEFAULT NULL COMMENT '크롤링 등록일',
+  PRIMARY KEY (`crawling_seq`)
+) COMMENT '크롤링'
+;
 
+DROP TABLE crawling;
+DELETE FROM crawling ;
+
+SELECT * FROM crawling;
+SELECT crawling_keyword, count(*) FROM crawling
+GROUP BY crawling_keyword ;
+-->
 <mapper namespace="kr.co.crawler.mapper.CrawlerMapper">
 
     <insert id="insertData" parameterType="kr.co.crawler.model.CrawlerModel">
