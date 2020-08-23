@@ -122,13 +122,13 @@ public class Crawler extends CustomCrawler {
             if(!content.equals("")){
                 insertService.insertData(
                         new CrawlerModel(){{
-                            setCrawlingDocId(page.getWebURL().getDocid()+"");
-                            setCrawlingBaseUrl(page.getWebURL().getDomain());
-                            setCrawlingTargetUrl(page.getWebURL().getURL());
-                            setCrawlingKeyword(keyword);
-                            setCrawlingTitle(title);
-                            setCrawlingImagePath(imagePath);
-                            setCrawlingContent(content.trim());
+                            setCrawlerDocId(RandomStringUtils.randomAlphanumeric(32));
+                            setCrawlerBaseUrl(page.getWebURL().getDomain());
+                            setCrawlerTargetUrl(page.getWebURL().getURL());
+                            setCrawlerKeyword(keyword);
+                            setCrawlerTitle(title);
+                            setCrawlerImagePath(imagePath);
+                            setCrawlerContent(content.trim());
                         }}
                 );
             }

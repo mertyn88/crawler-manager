@@ -43,13 +43,35 @@ crawler:
   seed-info:
     temporary-view-url: http://localhost:8080/temporary/view
     temporary-save-url: http://localhost:8080/temporary/save
-    search-url: https://post.naver.com/search/post.nhn?keyword=#keyword#
+    search-url: https://post.naver.com/search/post.nhn?keyword=#keyword#&sortType=createDate.dsc&range=&term=all&navigationType=current
     search-url-pattern: https://post.naver.com/viewer/postView.nhn\?volumeNo=.*searchRank=.*$
     search-data-pattern: (?s)<!-- SE3-TEXT \{ -->.*?<!-- \} SE3-TEXT -->
     search-data-remove-front: <!-- SE3-TEXT \{ -->
     search-data-remove-back:  <!-- \} SE3-TEXT -->
-    search-more-max: 10
+    search-more-max: 30
     search-keyword-list:
+      - 배음 하모닉스
+      - THD
+      - dolby atmos
+      - Frequency Response
+      - XLR TRS
+      - 컴프레서 리미터
+      - 오디오 인터페이스 dac
+      - 믹싱 마스터링
+      - 미디장비 추천
+      - 폴리 사운드
+      - 스튜디오 마이크
+      - 보컬 레코딩 마이크
+      - 진공관 트랜지스터 엠프
+      - LP CD
+      - 노이즈 캔슬링
+      - 하이파이 입문
+      - 홈레코딩 입문 스피커
+      - 홈시어터 모션
+      - 사운드 디자이너
+      - 사운드 엔지니어
+      - 하만카돈 스피커
+      - 마샬 블루투스
       - 스피커
       - 마이크
       - 케이블
@@ -60,4 +82,3 @@ crawler:
       - 소스기기
       - 악기
       - 음반
-

@@ -1,0 +1,45 @@
+{
+  "settings": {
+    "index": {
+      "number_of_shards": 1,
+      "number_of_replicas": 0,
+      "analysis": {
+        "analyzer": {
+          "nori_analyzer": {
+            "type": "nori"
+          }
+        }
+      }
+    }
+  },
+  "mappings": {
+    "properties":{
+      "baseUrl":{
+        "type":"keyword"
+      },
+      "targetUrl":{
+        "type":"keyword"
+      },
+      "keyword":{
+        "type":"keyword"
+      },
+      "title":{
+        "type":"text",
+        "analyzer": "nori_analyzer"
+      },
+      "content":{
+        "type":"text",
+        "analyzer": "nori_analyzer"
+      },
+      "imagePath":{
+        "type":"keyword"
+      },
+      "reg_date":{
+        "type":"date"
+      },
+      "chg_date":{
+        "type":"date"
+      }
+    }
+  }
+}
