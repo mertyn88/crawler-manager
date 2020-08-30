@@ -14,5 +14,6 @@ public class CrawlerModel {
     private String crawlerTitle;
     private String crawlerImagePath;
     private String crawlerContent; //문서 내용
+    private String crawlerDate;     //문서 날짜
 
 }

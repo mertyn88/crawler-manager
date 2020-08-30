@@ -50,12 +50,12 @@ crawler:
     search-data-remove-back:  <!-- \} SE3-TEXT -->
     search-more-max: 30
     search-keyword-list:
-      - 배음 하모닉스
       - THD
+      - 컴프레서 리미터
+      - 배음 하모닉스
       - dolby atmos
       - Frequency Response
       - XLR TRS
-      - 컴프레서 리미터
       - 오디오 인터페이스 dac
       - 믹싱 마스터링
       - 미디장비 추천
