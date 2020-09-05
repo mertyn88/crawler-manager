@@ -14,10 +14,10 @@
   },
   "mappings": {
     "properties":{
-      "baseUrl":{
+      "base_url":{
         "type":"keyword"
       },
-      "targetUrl":{
+      "target_url":{
         "type":"keyword"
       },
       "keyword":{
@@ -25,13 +25,15 @@
       },
       "title":{
         "type":"text",
-        "analyzer": "nori_analyzer"
+        "analyzer": "nori_analyzer",
+        "term_vector": "with_positions_offsets"
       },
       "content":{
         "type":"text",
-        "analyzer": "nori_analyzer"
+        "analyzer": "nori_analyzer",
+        "term_vector": "with_positions_offsets"
       },
-      "imagePath":{
+      "image_path":{
         "type":"keyword"
       },
       "reg_date":{
