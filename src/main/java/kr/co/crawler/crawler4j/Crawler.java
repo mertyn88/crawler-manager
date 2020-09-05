@@ -27,6 +27,7 @@ public class Crawler extends CustomCrawler {
     private String imagePath;
     private String content;
     private String keyword;
+    private String date;
 
     private CrawlerProperties crawlerProperties;
     private InsertService insertService;
@@ -97,6 +98,8 @@ public class Crawler extends CustomCrawler {
             log.info("Title :: {}", title);
             imageUrl = doc.select("meta[property=og:image]").get(0).attr("content");
             log.info("Image url :: {}", imageUrl);
+            date = doc.select("meta[property=og:createdate]").get(0).attr("content");
+            log.info("Created date :: {}", date);
 
             /**
              * 이미지 다운로드
@@ -129,6 +132,7 @@ public class Crawler extends CustomCrawler {
                             setCrawlerTitle(title);
                             setCrawlerImagePath(imagePath);
                             setCrawlerContent(content.trim());
+                            setCrawlerDate(date);
                         }}
                 );
             }
@@ -140,6 +144,7 @@ public class Crawler extends CustomCrawler {
         imageUrl = "";
         imagePath = "";
         content = "";
+        date = "";
     }
 
     /**

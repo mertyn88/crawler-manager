@@ -1,7 +1,5 @@
 package kr.co.crawler.selenium;
 
-import kr.co.crawler.core.properties.CrawlerProperties;
-import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -72,17 +70,31 @@ public class Selenium {
          */
         driver.get(searchUrl);
 
-
-        JavascriptExecutor javascriptExecutor = (JavascriptExecutor) driver;
-        for(int idx = 0; idx < searchMoreMax; idx++){
-            javascriptExecutor.executeScript("arguments[0].click();", driver.findElement(By.xpath("//*[@id=\"more_btn\"]/button")));
-            log.info((idx+1) + " More button click... sync wait 5 seconds");
-            Thread.sleep(5000);
+        try{
+            JavascriptExecutor javascriptExecutor = (JavascriptExecutor) driver;
+            for(int idx = 0; idx < searchMoreMax; idx++){
+                /** javascriptExecutor Exception 처리 **/
+                if(driver.findElements(By.xpath("//*[@id=\"more_btn\"]/button")).size() > 0){
+                    javascriptExecutor.executeScript("arguments[0].click();", driver.findElement(By.xpath("//*[@id=\"more_btn\"]/button")));
+                    log.info(keyword + " " +(idx+1) + " More button click... sync wait 10 seconds");
+                    Thread.sleep(10000);
+                } else {
+                    log.error("javascriptExecutor more button not");
+                    break;
+                }
+            }
+        }catch(Exception e){
+            e.printStackTrace();
         }
-
         saveHtml(getDate() + "_" + keyword, driver.getPageSource().getBytes());
 
-        return new StringBuffer(driver.getPageSource()).toString();
+        StringBuffer resultBuffer = new StringBuffer(driver.getPageSource());
+
+        /** chromedriver close **/
+        driver.quit();
+       // driver.close();
+
+        return resultBuffer.toString();
     }
 
 

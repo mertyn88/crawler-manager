@@ -36,8 +36,8 @@ public class CrawlerServiceImpl implements CrawlerService {
 
         for(String keyword : crawlerProperties.getSeedInfo().getSearchKeywordList()){
             if(getUrlData(keyword)){
-                log.info("Save Url data! wait 5 seconds & crawling start [" + keyword + "]");
-                Thread.sleep(5000);
+                log.info("Save Url data! wait 10 seconds & crawling start [" + keyword + "]");
+                Thread.sleep(10000);
                 settingCrawler();
                 startCrawler(keyword);
             }else{

@@ -6,7 +6,7 @@
 <mapper namespace="kr.co.crawler.mapper.CrawlerMapper">
 
     <insert id="insertData" parameterType="kr.co.crawler.model.CrawlerModel">
-        INSERT INTO crawler (
+        INSERT IGNORE INTO crawler (
                         crawler_doc_id
                         , crawler_base_url
                         , crawler_target_url
@@ -14,6 +14,7 @@
                         , crawler_title
                         , crawler_image_path
                         , crawler_content
+                        , crawler_date
                         )
         VALUES (
                 #{crawlerDocId}
@@ -23,6 +24,7 @@
                 , #{crawlerTitle}
                 , #{crawlerImagePath}
                 , #{crawlerContent}
+                , #{crawlerDate}
                 )
     </insert>
 
